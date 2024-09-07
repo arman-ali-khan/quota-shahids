@@ -3,60 +3,61 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: 'SolaimanLipiNormal';
-        font-style: normal;
-        font-weight: normal;
-        src: local('SolaimanLipiNormal'), url('../public/solaimanlipi.woff') format('woff');
-        }
-        @font-face {
-            font-family: 'CharuChandan';
-            font-style: normal;
-            font-weight: normal;
-            src: local('CharuChandan'), url('../public/charu.ttf') format('woff');
-            }
+  @font-face {
+    font-family: "SolaimanLipiNormal";
+    font-style: normal;
+    font-weight: normal;
+    src: local("SolaimanLipiNormal"),
+      url("../public/solaimanlipi.woff") format("woff");
   }
-
-  @layer utilities{
-       
-  } 
-  
-  
-  .pagination > ul > li > a{
-    padding: 6px 24px;
-    display: inline-block;
-}
-.pagination > ul > li{
-    background-color: green;
-}
-.pagination > ul >li:hover{
-    background: rgb(8, 80, 8);
-    transition-delay: 3ms;
-    transition-duration: 3ms;
-}
-.pagination .previous{
-    background: rgb(6, 100, 34)!important;
-    color: white;
-}
-.pagination .next{
-    background: rgb(6, 100, 34);
-    color: white;
-}
-.pagination .disabled a{
-    background: rgb(80, 80, 80)!important;
-    cursor: default;
-}
-.pagination .selected{
-    background: red!important;
-}
-  @media screen and (max-width: 480px){
-    .pagination > ul> li> a{
-        padding: 4px 12px;
-    }
+  @font-face {
+    font-family: "CharuChandan";
+    font-style: normal;
+    font-weight: normal;
+    src: local("CharuChandan"), url("../public/charu.ttf") format("woff");
   }
+}
 
-  /* blood effect */
-  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@layer utilities {
+}
+
+.pagination > ul > li > a {
+  padding: 6px 24px;
+  display: inline-block;
+}
+.pagination > ul > li {
+  background-color: #00a96e;
+  border-radius: 8px;
+}
+.pagination > ul > li:hover {
+  background: #018053;
+  transition-delay: 3ms;
+  transition-duration: 3ms;
+}
+.pagination .previous {
+  background: #00a96e !important;
+  color: white;
+}
+.pagination .next {
+  background: #00a96e;
+  color: white;
+}
+.pagination .disabled a {
+  background: rgb(80, 80, 80) !important;
+  cursor: default;
+  border-radius: 8px;
+}
+.pagination .selected {
+  background: #ff5861 !important;
+}
+@media screen and (max-width: 480px) {
+  .pagination > ul > li > a {
+    padding: 4px 12px;
+  }
+}
+
+/* blood effect */
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 .App {
   text-align: center;
   height: 100%;
@@ -87,7 +88,7 @@
   100% {
     text-shadow: 0px 5px 3px #c8102e, 0px 10px 3px #c8102e, 0px 15px 3px #c8102e,
       0px 20px 3px #c8102e, 0px 25px 3px #c8102e, 0px 30px 3px #c8102e,
-      0px 35px 3px #c8102e, 0px 40px 3px #c8102e, 0px 45px 3px #c8102e,
+      0px 35px 3px #c8102e, 0px 40px 3px #c8102e, 0px 45px 3px #c8102e;
   }
 }
 .note {
@@ -102,15 +103,15 @@
 }
 @keyframes grow {
   0% {
-        transform: scale(1, 1);
+    transform: scale(1, 1);
   }
   100% {
-        transform: scale(1, 1.25);
+    transform: scale(1, 1.25);
   }
 }
-.bloods{
-    width: 120px;
-    overflow: hidden;
+.bloods {
+  width: 120px;
+  overflow: hidden;
 }
 .blooddrop {
   position: relative;
@@ -120,10 +121,10 @@
   margin: 0;
   background-color: #c8102e;
   border-radius: 50%;
-  animation: drip 3s cubic-bezier(1,0,.91,.19) infinite ;
-    -webkit-animation: drip 3s cubic-bezier(1,0,.91,.19) infinite;
-    -moz-animation: drip 3s cubic-bezier(1,0,.91,.19) infinite;
-    -o-animation: drip 3s cubic-bezier(1,0,.91,.19) infinite;
+  animation: drip 3s cubic-bezier(1, 0, 0.91, 0.19) infinite;
+  -webkit-animation: drip 3s cubic-bezier(1, 0, 0.91, 0.19) infinite;
+  -moz-animation: drip 3s cubic-bezier(1, 0, 0.91, 0.19) infinite;
+  -o-animation: drip 3s cubic-bezier(1, 0, 0.91, 0.19) infinite;
 }
 .blooddrop:before {
   content: "";
@@ -137,87 +138,91 @@
   left: 1px;
 }
 .blooddrop:nth-of-type(1) {
-    position: absolute;
-    left: 20px;
-    top: 0px;
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(2) {
-    position: absolute;
-    left: 53px;
-    top: 0px;
-    animation-delay: 3s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 53px;
+  top: 0px;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(3) {
-    position: absolute;
-    left: 80px;
-    top: 0px;
-    animation-delay: 4s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 80px;
+  top: 0px;
+  animation-delay: 4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(4) {
-    position: absolute;
-    left: 15px;
-    top: 0px;
-    animation-delay: 5.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 15px;
+  top: 0px;
+  animation-delay: 5.5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(5) {
-    position: absolute;
-    left: 130px;
-    top: 0px;
-    animation-delay: 4.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 130px;
+  top: 0px;
+  animation-delay: 4.5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(6) {
-    position: absolute;
-    left: 172px;
-    top: 0px;
-    animation-delay: 3.2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 172px;
+  top: 0px;
+  animation-delay: 3.2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(7) {
-    position: absolute;
-    left: 222px;
-    top: 0px;
-    animation-delay: 4.8s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 222px;
+  top: 0px;
+  animation-delay: 4.8s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(8) {
-    position: absolute;
-    left: 245px;
-    top: 0px;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 245px;
+  top: 0px;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(9) {
-    position: absolute;
-    left: 280px;
-    top: 0px;
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 280px;
+  top: 0px;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 .blooddrop:nth-of-type(10) {
-    position: absolute;
-    left: 300px;
-    top: 65px;
-    animation-delay: 2.2s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: backwards;
+  position: absolute;
+  left: 300px;
+  top: 65px;
+  animation-delay: 2.2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
 }
 @keyframes drip {
-  0% { top: 70px; }
-  100% { top: 600px; }
+  0% {
+    top: 70px;
+  }
+  100% {
+    top: 600px;
+  }
 }
-  /* blood effect */
+/* blood effect */

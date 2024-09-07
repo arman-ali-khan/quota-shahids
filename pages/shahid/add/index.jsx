@@ -9,14 +9,14 @@ function index() {
   const [lastName,setLastName] = useState('')
   return (
     <Layout title={'নতুন শহীদ যোগ করুন'}>
-      <section class="w-full dark:bg-gray-900">
-        <div class="flex flex-col">
+      <section className="w-full dark:bg-gray-900">
+        <div className="flex flex-col">
           <div className="relative flex mt-6 sm:mt-12 md:mt-24 lg:mt-24 justify-center">
             {/* <!-- Cover Image --> */}
             <img
               src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjb3ZlcnxlbnwwfDB8fHwxNzEwNzQxNzY0fDA&ixlib=rb-4.0.3&q=80&w=1080"
               alt="User Cover"
-              class="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[16rem] h-[12rem]"
+              className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[16rem] h-[12rem]"
             />
 
             {/* <!-- Profile Image --> */}
@@ -25,7 +25,7 @@ function index() {
                 <img
                   src="/placeholder.webp"
                   alt="User Cover"
-                  class="w-24 sm:w-32 object-cover md:w-44 lg:w-56 h-24 sm:h-32 md:h-44 lg:h-56 rounded-full border-2 "
+                  className="w-24 sm:w-32 object-cover md:w-44 lg:w-56 h-24 sm:h-32 md:h-44 lg:h-56 rounded-full border-2 "
                 />
                 <label
                   htmlFor="profile"
@@ -43,9 +43,9 @@ function index() {
             </div>
           </div>
 
-          <div class="xl:w-[80%] lg:w-[90%] md:w-[90%] sm:w-[92%] w-[90%] mx-auto flex flex-col gap-4 items-center relative lg:-top-8 md:-top-6 sm:-top-4 xs:-top-4">
+          <div className="xl:w-[80%] lg:w-[90%] md:w-[90%] sm:w-[92%] w-[90%] mx-auto flex flex-col gap-4 items-center relative lg:-top-8 md:-top-6 sm:-top-4 xs:-top-4">
             {/* <!-- Description --> */}
-            <p class="w-full text-gray-700 font-[SolaimanLipiNormal] mt-12 dark:text-gray-400 text-md">
+            <p className="w-full text-gray-700 font-[SolaimanLipiNormal] mt-12 dark:text-gray-400 text-md">
               <textarea
                 placeholder="শহীদ এর তথ্য"
                 className="textarea textarea-bordered sm:w-96 min-w-full"
@@ -53,18 +53,18 @@ function index() {
             </p>
 
             {/* <!-- Detail --> */}
-            <div class="w-full font-[SolaimanLipiNormal] my-auto py-6 flex flex-col justify-center gap-2">
-              <div class="w-full px-2 flex sm:flex-row flex-col gap-2 justify-center">
-                <div class="w-full">
-                  <dl class="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                    <div class="flex flex-col pb-3">
+            <div className="w-full font-[SolaimanLipiNormal] my-auto py-6 flex flex-col justify-center gap-2">
+              <div className="w-full px-2 flex sm:flex-row flex-col gap-2 justify-center">
+                <div className="w-full">
+                  <dl className="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                    <div className="flex flex-col">
                       <label
                         htmlFor="first-name"
-                        class="mb-1 text-balck md:text-lg"
+                        className="mb-1 text-balck md:text-lg"
                       >
                         নাম
                       </label>
-                      <dd class="text-lg font-semibold">
+                      <dd className="text-lg font-semibold">
                         <input
                           onChange={e=>setFirstName(e.target.value)}
                           id="first-name"
@@ -74,9 +74,9 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">পদবী</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">পদবী</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                         onChange={e=>setLastName(e.target.value)}
                           type="text"
@@ -85,9 +85,9 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">জন্ম তারিখঃ</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">জন্ম তারিখঃ</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                           type="date"
                           className="px-2 rounded-md border-b w-full"
@@ -95,18 +95,18 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">লিঙ্গ</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">লিঙ্গ</dt>
+                      <dd className="text-lg font-semibold">
                         <select className="px-2 rounded-md border-b w-full">
                           <option>Male</option>
                           <option>Female</option>
                         </select>
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">লেখাপড়া</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">লেখাপড়া</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                           type="text"
                           className="px-2 rounded-md border-b w-full"
@@ -114,9 +114,9 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">স্মৃতি স্মারক</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">স্মৃতি স্মারক</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                           type="text"
                           className="px-2 rounded-md border-b w-full"
@@ -126,11 +126,11 @@ function index() {
                     </div>
                   </dl>
                 </div>
-                <div class="w-full">
-                  <dl class="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">পিতা</dt>
-                      <dd class="text-lg font-semibold">
+                <div className="w-full">
+                  <dl className="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                  <div className="flex flex-col">
+                      <dt className="mb-1 text-balck md:text-lg">পিতা</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                           type="text"
                           className="px-2 rounded-md border-b w-full"
@@ -138,9 +138,9 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">মাতা</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">মাতা</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                           type="text"
                           className="px-2 rounded-md border-b w-full"
@@ -148,9 +148,9 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col pb-3">
-                      <dt class="mb-1 text-balck md:text-lg">ঠিকানা</dt>
-                      <dd class="text-lg font-semibold">
+                    <div className="flex flex-col">
+                      <dt className="mb-1 text-balck md:text-lg">ঠিকানা</dt>
+                      <dd className="text-lg font-semibold">
                         <input
                           type="address"
                           className="px-2 rounded-md border-b w-full"
@@ -159,11 +159,11 @@ function index() {
                       </dd>
                     </div>
 
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">
                         শহীদ হওয়ার তারিখ
                       </dt>
-                      <dd class="text-lg font-semibold">
+                      <dd className="text-lg font-semibold">
                         <input
                           type="date"
                           className="px-2 rounded-md border-b w-full"
@@ -171,11 +171,11 @@ function index() {
                         />
                       </dd>
                     </div>
-                    <div class="flex flex-col py-3">
-                      <dt class="mb-1 text-balck md:text-lg">
+                    <div className="flex flex-col py-3">
+                      <dt className="mb-1 text-balck md:text-lg">
                         শহীদ হওয়ার স্থান
                       </dt>
-                      <dd class="text-lg font-semibold">
+                      <dd className="text-lg font-semibold">
                         <input
                           type="text"
                           className="px-2 rounded-md border-b w-full"

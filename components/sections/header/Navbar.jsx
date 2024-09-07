@@ -3,28 +3,28 @@ import Link from "next/link"
 import { MdAddCircleOutline } from "react-icons/md";
 
 const Navbar = () =>{
-    return <div className="navbar shadow-xl fixed !z-[650] top-0 bg-base-100">
+    return <div className="navbar shadow-xl fixed left-0 !z-[650] top-0 bg-base-100">
     <div className="flex-1">
   
-      <Link href={'/'} className="px-4 py-1 gap-2 flex text-xl"><span class="before:block before:absolute before:-inset-1 before:skew-y-3 before:bg-green-500 relative inline-block">
-    <span class="relative text-white font-[SolaimanLipiNormal]">Quota</span>
+      <Link href={'/'} className="px-4 py-1 gap-2 flex text-xl"><span className="before:block before:absolute before:-inset-1 before:skew-y-3 before:bg-success relative inline-block">
+    <span className="relative text-white font-[SolaimanLipiNormal]">Quota</span>
   </span>
-   <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block">
-    <span class="relative text-white font-[SolaimanLipiNormal]">Shahid's</span>
+   <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-error relative inline-block">
+    <span className="relative text-white font-[SolaimanLipiNormal]">Shahid's</span>
   </span>
-  {/* <div class="App">
-      <div class="container">
+  {/* <div className="App">
+      <div className="container">
         <section className="bloods">
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
-          <div class='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
+          <div className='blooddrop'></div>
         </section>
       </div>
     </div> */}
