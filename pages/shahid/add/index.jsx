@@ -1,15 +1,23 @@
 import Layout from "@/layout/Layout";
-import { MdOutlineAddPhotoAlternate } from "react-icons/md";
+import { MdOutlineAdivPhotoAlternate } from "react-icons/md";
 import { LuPenLine } from "react-icons/lu";
 import { CiImageOn } from "react-icons/ci";
 import { useState } from "react";
 
+
 function index() {
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
+// date picker
+const [date, setDate] = useState('');
+
+const handleDateChange = (event) => {
+  setDate(event.target.value);
+};
+
   return (
     <Layout title={'নতুন শহীদ যোগ করুন'}>
-      <section className="w-full dark:bg-gray-900">
+      <section className="w-full">
         <div className="flex flex-col">
           <div className="relative flex mt-6 sm:mt-12 md:mt-24 lg:mt-24 justify-center">
             {/* <!-- Cover Image --> */}
@@ -32,7 +40,7 @@ function index() {
                   className="group-hover:opacity-60 opacity-0 absolute z-50 bg-slate-300 text-black rounded-full btn btn-ghost hover:text-white hover:bg-black hover:rounded-full"
                 >
                   <CiImageOn size={24} />
-                  <input id="profile" hidden type="file" />
+                  <input id="profile" hidiven type="file" />
                 </label>
               </div>
               <div className="font-[CharuChandan] relative flex justify-center items-center gap-2 text-red-500 font-bold text-sm sm:text-lg md:text-xl lg:text-3xl drop-shadow-xl">
@@ -41,14 +49,38 @@ function index() {
                 >{firstName||'আবু'} {lastName||'সাঈদ'}</p>
               </div>
             </div>
-          </div>
+          </div>\
+          {/* Date picker */}
+          <div className="relative">
+      {/* Hidden Datepicker */}
+      <input
+        type="date"
+        value={date}
+        onChange={handleDateChange}
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+      />
 
+      {/* Custom Display Button */}
+      <button
+        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        onClick={() => document.querySelector('input[type="date"]').focus()}
+      >
+        Select Date
+      </button>
+
+      {/* Display selected date */}
+      {date && (
+        <div className="mt-2 text-gray-700">
+          Selected Date: <span className="font-medium">{date}</span>
+        </div>
+      )}
+    </div>
           <div className="xl:w-[80%] lg:w-[90%] md:w-[90%] sm:w-[92%] w-[90%] mx-auto flex flex-col gap-4 items-center relative lg:-top-8 md:-top-6 sm:-top-4 xs:-top-4">
             {/* <!-- Description --> */}
             <p className="w-full text-gray-700 font-[SolaimanLipiNormal] mt-12 dark:text-gray-400 text-md">
               <textarea
                 placeholder="শহীদ এর তথ্য"
-                className="textarea textarea-bordered sm:w-96 min-w-full"
+                className="textarea textarea-bordered sm:w-96 focus:outline-none focus:border-b-2 duration-300 min-w-full"
               ></textarea>{" "}
             </p>
 
@@ -56,140 +88,123 @@ function index() {
             <div className="w-full font-[SolaimanLipiNormal] my-auto py-6 flex flex-col justify-center gap-2">
               <div className="w-full px-2 flex sm:flex-row flex-col gap-2 justify-center">
                 <div className="w-full">
-                  <dl className="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="first-name"
-                        className="mb-1 text-balck md:text-lg"
-                      >
-                        নাম
-                      </label>
-                      <dd className="text-lg font-semibold">
-                        <input
-                          onChange={e=>setFirstName(e.target.value)}
-                          id="first-name"
-                          type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="আবু"
-                        />
-                      </dd>
-                    </div>
+                  <div className="">
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">পদবী</dt>
-                      <dd className="text-lg font-semibold">
+                     
+                      <div className="text-lg font-semibold">
+                      <div className="text-lg font-semibold">
                         <input
                         onChange={e=>setLastName(e.target.value)}
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="সাঈদ"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="First Name"
                         />
-                      </dd>
+                      </div>
+                      </div>
                     </div>
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">জন্ম তারিখঃ</dt>
-                      <dd className="text-lg font-semibold">
+                     
+                      <div className="text-lg font-semibold">
+                        <input
+                        onChange={e=>setLastName(e.target.value)}
+                          type="text"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Last Name"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col py-3">
+                      <div className="text-lg font-semibold">
                         <input
                           type="date"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Date of birth"
                         />
-                      </dd>
+                      </div>
                     </div>
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">লিঙ্গ</dt>
-                      <dd className="text-lg font-semibold">
-                        <select className="px-2 rounded-md border-b w-full">
+                      <div className="text-lg font-semibold">
+                        <select className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300">
                           <option>Male</option>
                           <option>Female</option>
                         </select>
-                      </dd>
+                      </div>
                     </div>
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">লেখাপড়া</dt>
-                      <dd className="text-lg font-semibold">
+                      <div className="text-lg font-semibold">
                         <input
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Education"
                         />
-                      </dd>
+                      </div>
                     </div>
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">স্মৃতি স্মারক</dt>
-                      <dd className="text-lg font-semibold">
+                      <div className="text-lg font-semibold">
                         <input
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Commemorative honor"
                         />
-                      </dd>
+                      </div>
                     </div>
-                  </dl>
+                  </div>
                 </div>
                 <div className="w-full">
-                  <dl className="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                  <div className="flex flex-col">
-                      <dt className="mb-1 text-balck md:text-lg">পিতা</dt>
-                      <dd className="text-lg font-semibold">
+                  <div className="">
+                  <div className="flex flex-col py-3">
+                      <div className="text-lg font-semibold">
                         <input
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Father Name"
                         />
-                      </dd>
+                      </div>
                     </div>
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">মাতা</dt>
-                      <dd className="text-lg font-semibold">
+                      <div className="text-lg font-semibold">
                         <input
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Mother Name"
                         />
-                      </dd>
+                      </div>
                     </div>
-                    <div className="flex flex-col">
-                      <dt className="mb-1 text-balck md:text-lg">ঠিকানা</dt>
-                      <dd className="text-lg font-semibold">
+                    <div className="flex flex-col py-3">
+                      <div className="text-lg font-semibold">
                         <input
-                          type="address"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          type="adivress"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Home Address"
                         />
-                      </dd>
+                      </div>
                     </div>
 
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">
-                        শহীদ হওয়ার তারিখ
-                      </dt>
-                      <dd className="text-lg font-semibold">
+                      <div className="text-lg font-semibold">
                         <input
                           type="date"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Date of shahid"
                         />
-                      </dd>
+                      </div>
                     </div>
                     <div className="flex flex-col py-3">
-                      <dt className="mb-1 text-balck md:text-lg">
-                        শহীদ হওয়ার স্থান
-                      </dt>
-                      <dd className="text-lg font-semibold">
+                      <div className="text-lg font-semibold">
                         <input
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="লিখুন"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Place of shahid"
                         />
-                      </dd>
+                      </div>
                     </div>
-                  </dl>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* add */}
+            {/* adiv */}
             <div className="flex justify-center">
-            <button className="btn rounded text-white btn-success">Publish</button>
+            <button className="btn rounded text-white px-8 btn-success">Publish</button>
             </div>
           </div>
         </div>
