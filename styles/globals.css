@@ -20,7 +20,9 @@
 
 @layer utilities {
 }
-
+.ql-editor{
+  font-size: 16px;
+}
 .pagination > ul > li > a {
   padding: 6px 24px;
   display: inline-block;

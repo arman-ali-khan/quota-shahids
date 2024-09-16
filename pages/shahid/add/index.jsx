@@ -3,17 +3,13 @@ import { MdOutlineAdivPhotoAlternate } from "react-icons/md";
 import { LuPenLine } from "react-icons/lu";
 import { CiImageOn } from "react-icons/ci";
 import { useState } from "react";
+import ReactQuillEditor from "@/components/sections/Create/ReactQuill";
 
 
 function index() {
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
-// date picker
-const [date, setDate] = useState('');
 
-const handleDateChange = (event) => {
-  setDate(event.target.value);
-};
 
   return (
     <Layout title={'নতুন শহীদ যোগ করুন'}>
@@ -40,7 +36,7 @@ const handleDateChange = (event) => {
                   className="group-hover:opacity-60 opacity-0 absolute z-50 bg-slate-300 text-black rounded-full btn btn-ghost hover:text-white hover:bg-black hover:rounded-full"
                 >
                   <CiImageOn size={24} />
-                  <input id="profile" hidiven type="file" />
+                  <input id="profile" hidden type="file" />
                 </label>
               </div>
               <div className="font-[CharuChandan] relative flex justify-center items-center gap-2 text-red-500 font-bold text-sm sm:text-lg md:text-xl lg:text-3xl drop-shadow-xl">
@@ -49,39 +45,16 @@ const handleDateChange = (event) => {
                 >{firstName||'আবু'} {lastName||'সাঈদ'}</p>
               </div>
             </div>
-          </div>\
-          {/* Date picker */}
-          <div className="relative">
-      {/* Hidden Datepicker */}
-      <input
-        type="date"
-        value={date}
-        onChange={handleDateChange}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-      />
-
-      {/* Custom Display Button */}
-      <button
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-        onClick={() => document.querySelector('input[type="date"]').focus()}
-      >
-        Select Date
-      </button>
-
-      {/* Display selected date */}
-      {date && (
-        <div className="mt-2 text-gray-700">
-          Selected Date: <span className="font-medium">{date}</span>
-        </div>
-      )}
-    </div>
+          </div>
+        
           <div className="xl:w-[80%] lg:w-[90%] md:w-[90%] sm:w-[92%] w-[90%] mx-auto flex flex-col gap-4 items-center relative lg:-top-8 md:-top-6 sm:-top-4 xs:-top-4">
             {/* <!-- Description --> */}
             <p className="w-full text-gray-700 font-[SolaimanLipiNormal] mt-12 dark:text-gray-400 text-md">
-              <textarea
+              {/* <textarea
                 placeholder="শহীদ এর তথ্য"
                 className="textarea textarea-bordered sm:w-96 focus:outline-none focus:border-b-2 duration-300 min-w-full"
-              ></textarea>{" "}
+              ></textarea>{" "} */}
+              <ReactQuillEditor />
             </p>
 
             {/* <!-- Detail --> */}
@@ -90,40 +63,43 @@ const handleDateChange = (event) => {
                 <div className="w-full">
                   <div className="">
                     <div className="flex flex-col py-3">
-                     
                       <div className="text-lg font-semibold">
-                      <div className="text-lg font-semibold">
+                        <label htmlFor="firstName">First Name</label>
                         <input
-                        onChange={e=>setLastName(e.target.value)}
+                          id="firstName"
+                          onChange={e=>setFirstName(e.target.value)}
                           type="text"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="First Name"
-                        />
-                      </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col py-3">
-                     
-                      <div className="text-lg font-semibold">
-                        <input
-                        onChange={e=>setLastName(e.target.value)}
-                          type="text"
-                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Last Name"
+                          placeholder="Enter First Name"
                         />
                       </div>
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="lastName">Last Name</label>
                         <input
+                          id="lastName"
+                          onChange={e=>setLastName(e.target.value)}
+                          type="text"
+                          className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
+                          placeholder="Enter Last Name"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col py-3">
+                      <div className="text-lg font-semibold">
+                        <label htmlFor="dateOfBirth">Date of birth</label>
+                        <input
+                          id="dateOfBirth"
                           type="date"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Date of birth"
+                          placeholder="Enter Date of birth"
                         />
                       </div>
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                      <label htmlFor="placeOfShahid">Place of shahid</label>
                         <select className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300">
                           <option>Male</option>
                           <option>Female</option>
@@ -132,19 +108,23 @@ const handleDateChange = (event) => {
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="education">Education</label>
                         <input
+                          id="education"
                           type="text"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Education"
+                          placeholder="Enter Education"
                         />
                       </div>
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="commemorativeHonor">Commemorative honor</label>
                         <input
+                          id="commemorativeHonor"
                           type="text"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Commemorative honor"
+                          placeholder="Enter Commemorative honor"
                         />
                       </div>
                     </div>
@@ -152,49 +132,59 @@ const handleDateChange = (event) => {
                 </div>
                 <div className="w-full">
                   <div className="">
-                  <div className="flex flex-col py-3">
+                    <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="fatherName">Father Name</label>
                         <input
+                          id="fatherName"
                           type="text"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Father Name"
+                          placeholder="Enter Father Name"
                         />
                       </div>
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="motherName">Mother Name</label>
                         <input
+                          id="motherName"
                           type="text"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Mother Name"
+                          placeholder="Enter Mother Name"
                         />
                       </div>
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="homeAddress">Home Address</label>
                         <input
-                          type="adivress"
+                          id="homeAddress"
+                          type="address"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Home Address"
+                          placeholder="Enter Home Address"
                         />
                       </div>
                     </div>
 
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="dateOfShahid">Date of shahid</label>
                         <input
+                          id="dateOfShahid"
                           type="date"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Date of shahid"
+                          placeholder="Enter Date of shahid"
                         />
                       </div>
                     </div>
                     <div className="flex flex-col py-3">
                       <div className="text-lg font-semibold">
+                        <label htmlFor="placeOfShahid">Place of shahid</label>
                         <input
+                          id="placeOfShahid"
                           type="text"
                           className="px-2 rounded-md border-b w-full focus:outline-none focus:border-b-2 duration-300"
-                          placeholder="Place of shahid"
+                          placeholder="Enter Place of shahid"
                         />
                       </div>
                     </div>
