@@ -4,10 +4,10 @@ import { PagesProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 
 export default function App({ Component, pageProps }) {
-  return   <ContextProvider> <ProgressBar
+  return   <> <ProgressBar
   height="4px"
   color="red"
   options={{ showSpinner: false }}
   shallowRouting
-/><Component {...pageProps} /></ContextProvider>;
+/><ContextProvider><Component {...pageProps} /></ContextProvider></>;
 }

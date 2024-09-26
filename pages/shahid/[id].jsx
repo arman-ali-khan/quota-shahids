@@ -1,35 +1,37 @@
 import Layout from "@/layout/Layout";
 
-const page = ({ user, error }) => {
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+const page = ({ user }) => {
+  // if (error) {
+  //   return <Layout title={`শহীদ আবু সাঈদ - রংপুর`}><div className="h-96 flex justify-center items-center">Error: {error}</div></Layout> ;
+  // }
 
-  if (!user) {
-    return <div>User not found</div>;
-  }
+  console.log(user,'user');
+
+  // if (!user) {
+  //   return <Layout title={`শহীদ আবু সাঈদ - রংপুর`}><div className="h-96 flex justify-center items-center">User not found</div></Layout> 
+  // }
 
   return (
     <Layout title={`শহীদ আবু সাঈদ - রংপুর`}>
-      <section className="w-full overflow-hidden dark:bg-gray-900">
+      <section className="w-full overflow-hidden">
         <div className="flex flex-col">
           <div className="relative flex mt-6 sm:mt-12 md:mt-24 lg:mt-24 justify-center">
             {/* <!-- Cover Image --> */}
             <img
-              src={user?.cover}
+              src={`/images/abu.jpg`}
               alt="User Cover"
-              className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[16rem] h-[12rem]"
+              className="w-full object-cover object-top xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[16rem] h-[12rem]"
             />
 
             {/* <!-- Profile Image --> */}
             <div className="absolute -mt-6 sm:-mt-12 md:-mt-24 text-center">
               <img
-                src={user?.photo}
+                src={user?.profile?.[0]?.data}
                 alt="User Cover"
                 className="w-24 sm:w-32 grayscale object-cover md:w-44 lg:w-56 h-24 sm:h-32 md:h-44 lg:h-56 rounded-full border-2 "
               />
               <div className="font-[CharuChandan] text-red-500 font-bold text-sm sm:text-lg md:text-xl lg:text-3xl drop-shadow-xl">
-                {user?.firstName + " " + user?.lastName}
+                {user?.firstName?.[0]?.data + " " + user?.lastName?.[0]?.data}
               </div>
             </div>
           </div>
@@ -37,7 +39,7 @@ const page = ({ user, error }) => {
           <div className="xl:w-[80%] lg:w-[90%] md:w-[90%] sm:w-[92%] xs:w-[90%] mx-auto flex flex-col gap-4 items-center relative lg:-top-8 md:-top-6 sm:-top-4 xs:-top-4">
             {/* <!-- Description --> */}
             <p className="w-fit text-gray-700 font-[SolaimanLipiNormal] mt-12 dark:text-gray-400 text-md">
-              {user?.description[0]?.data}{" "}
+              {user?.description?.[0]?.data}{" "}
               <span className="hover:underline cursor-pointer text-green-600 text-sm">
                 Edit
               </span>
@@ -55,7 +57,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.firstName}</dd>
+                      <dd className="text-lg font-semibold">{user?.firstName?.[0]?.data}</dd>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400 flex items-center gap-2">
@@ -64,7 +66,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.lastName}</dd>
+                      <dd className="text-lg font-semibold">{user?.lastName?.[0]?.data}</dd>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400 flex items-center gap-2">
@@ -73,7 +75,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.dateOfBirth}</dd>
+                      <dd className="text-lg font-semibold">{user?.dateOfBirth?.[0]?.data}</dd>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400 flex items-center gap-2">
@@ -82,7 +84,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.gender}</dd>
+                      <dd className="text-lg font-semibold">{user?.gender?.[0]?.data}</dd>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400 flex items-center gap-2">
@@ -91,7 +93,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.education}</dd>
+                      <dd className="text-lg font-semibold">{user?.education?.[0]?.data}</dd>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400 flex items-center gap-2">
@@ -100,7 +102,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.commemorative}</dd>
+                      <dd className="text-lg font-semibold">{user?.commemorative?.[0]?.data}</dd>
                     </div>
                   </dl>
                 </div>
@@ -113,7 +115,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.father}</dd>
+                      <dd className="text-lg font-semibold">{user?.fatherName?.[0]?.data}</dd>
                     </div>
 
                     <div className="flex flex-col py-3">
@@ -123,7 +125,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.mother}</dd>
+                      <dd className="text-lg font-semibold">{user?.fatherName?.[0]?.data}</dd>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-gray-500 md:text-lg dark:text-gray-400 flex items-center gap-2">
@@ -132,7 +134,7 @@ const page = ({ user, error }) => {
                           Edit
                         </span>
                       </dt>
-                      <dd className="text-lg font-semibold">{user?.address}</dd>
+                      <dd className="text-lg font-semibold">{user?.homeAddress?.[0]?.data}</dd>
                     </div>
 
                     <div className="flex flex-col py-3">
@@ -143,7 +145,7 @@ const page = ({ user, error }) => {
                         </span>
                       </dt>
                       <dd className="text-lg font-semibold">
-                        {user?.dateOfShahid}
+                        {user?.dateOfDeath?.[0]?.data}
                       </dd>
                     </div>
                     <div className="flex flex-col py-3">
@@ -154,7 +156,7 @@ const page = ({ user, error }) => {
                         </span>
                       </dt>
                       <dd className="text-lg font-semibold">
-                        {user?.shahidAddress}
+                        {user?.deathAddress?.[0]?.data}
                       </dd>
                     </div>
                   </dl>
@@ -163,7 +165,7 @@ const page = ({ user, error }) => {
 
               <div className="my-10 w-full">
                 {/* <!--  --> */}
-                <h1 className="w-fit font-serif my-4 pb-1 pr-2 rounded-b-md border-b-4 border-blue-600 dark:border-b-4 dark:border-yellow-600 dark:text-white lg:text-4xl md:text-3xl xs:text-xl">
+                <h1 className="w-fit font-serif my-4 pb-1 pr-2 rounded-b-md border-b-4 border-blue-600  lg:text-4xl md:text-3xl xs:text-xl">
                   Editor's
                 </h1>
 
@@ -185,28 +187,14 @@ const page = ({ user, error }) => {
     </Layout>
   );
 };
-export async function getStaticPaths() {
-    const res = await fetch('https://9000-idx-quota-shahids-1723284412065.cluster-a3grjzek65cxex762e4mwrzl46.cloudworkstations.dev/api/shahids')
-    const users = await res.json()
-  
-    const paths = users.map((user) => ({
-      params: { id: user.id.toString() },
-    }))
-  
-    return { paths, fallback: false }
-  }
-  
-export async function getStaticProps({ params }) {
-    let post = await fetch(`https://9000-idx-quota-shahids-1723284412065.cluster-a3grjzek65cxex762e4mwrzl46.cloudworkstations.dev/api/shahid/1`).then(
-      (res) => res.json()
-    )
-   
-    return {
-      props: { post },
-      // Next.js will invalidate the cache when a
-      // request comes in, at most once every 60 seconds.
-      revalidate: 60,
-    }
+export async function getServerSideProps({params}) {
+  const {id} = params
+    // Fetch data from external API
+    console.log(`${process.env.API_URL}/api/shahid/${id}`);
+    const res = await fetch(`${process.env.API_URL}/api/shahid/${id}`)
+    const user = await res.json()
+    // Pass data to the page via props
+    return { props: { user } }
   }
 
 export default page;
