@@ -2,9 +2,13 @@ import Layout from "@/layout/Layout";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { LuPenLine } from "react-icons/lu";
 import { CiImageOn } from "react-icons/ci";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "@/Context/ContextProvider";
 
 function index() {
+  // Context
+  const {user} = useContext(AuthContext)
+  console.log(user,'user');
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
   return (
@@ -56,23 +60,18 @@ function index() {
             <div className="w-full font-[SolaimanLipiNormal] my-auto py-6 flex flex-col justify-center gap-2">
               <div className="w-full px-2 flex sm:flex-row flex-col gap-2 justify-center">
                 <div className="w-full">
-                  <dl className="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                  <div className="text-gray-900">
                     <div className="flex flex-col">
-                      <label
-                        htmlFor="first-name"
-                        className="mb-1 text-balck md:text-lg"
-                      >
-                        নাম
-                      </label>
-                      <dd className="text-lg font-semibold">
+                     
+                      <>
                         <input
                           onChange={e=>setFirstName(e.target.value)}
                           id="first-name"
                           type="text"
-                          className="px-2 rounded-md border-b w-full"
-                          placeholder="আবু"
+                          className="px-2 rounded-md border focus-border-1 w-full"
+                          placeholder="First Name"
                         />
-                      </dd>
+                      </>
                     </div>
                     <div className="flex flex-col py-3">
                       <dt className="mb-1 text-balck md:text-lg">পদবী</dt>
@@ -124,10 +123,10 @@ function index() {
                         />
                       </dd>
                     </div>
-                  </dl>
+                  </div>
                 </div>
                 <div className="w-full">
-                  <dl className="text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                  <div className="text-gray-900divide-gray-200 dark:text-white dark:divide-gray-700">
                   <div className="flex flex-col">
                       <dt className="mb-1 text-balck md:text-lg">পিতা</dt>
                       <dd className="text-lg font-semibold">
@@ -183,7 +182,7 @@ function index() {
                         />
                       </dd>
                     </div>
-                  </dl>
+                  </div>
                 </div>
               </div>
             </div>
